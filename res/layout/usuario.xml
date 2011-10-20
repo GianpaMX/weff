@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  
+  	<TextView android:id="@+id/tvTitulo"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:text="Identificación Ciudadano"
+  		android:textSize="20dp"
+  		android:gravity="center"
+  	/>
+  	<EditText android:id="@+id/etIdCiudadano"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:hint="Escribe el Id del ciudadano"
+  	/>
+  	<EditText android:id="@+id/etPassCiudadano"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:hint="Escribe la contraseña"
+  	/>
+  	<Button android:id="@+id/bEntrar"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:text="Entrar"
+  		android:gravity="center"/>
+  		
+  	<Button android:id="@+id/bUsuarioNoRegistrado" 
+  		android:layout_height="wrap_content"
+		android:layout_width="wrap_content" 
+		android:text="Usuario no registrado"
+		android:layout_gravity="center" />
+  		
+</LinearLayout>
+
