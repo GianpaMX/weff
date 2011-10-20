@@ -3,6 +3,7 @@ package cmdf2011.weff.interfaz.activities;
 import cmdf2011.weff.R;
 import cmdf2011.weff.R.id;
 import cmdf2011.weff.R.layout;
+import cmdf2011.weff.rest.CiudadanoRest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,9 @@ public class CiudadanoRegistroActivity extends Activity {
         Button b = (Button) findViewById(R.id.botonRegistro);
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+            	CiudadanoRest c = new CiudadanoRest();
+            	c.findCiudadanosAll(1);
+            	
             }
         });
     }
