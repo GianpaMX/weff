@@ -1,0 +1,106 @@
+package cmdf2011.weff.rest;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+public class GetJson {
+	
+	private static final String TAG = "GetJson";
+	
+	private static final String baseUrl = "http://gdfmovil.sytes.net/presto/edge/api/rest/";
+	
+	/**
+	 * @example
+	 * 
+	 * 	JSONArray nameArray = json.names();
+     *  JSONArray valArray = json.toJSONArray(nameArray);
+     *  for (int i = 0; i < valArray.length(); i++) {
+     *  	Log.i(TAG, "<jsonname" + i + ">\\n" + nameArray.getString(i)    + "\\n</jsonname" + i + ">\\n" + "<jsonvalue" + i + ">\\n" + valArray.getString(i) + "\\n</jsonvalue"   + i + ">");
+     *  }
+	 * 
+	 * @return
+	 */
+	public JSONObject ConsultaTicketsRegistrados(){
+		
+        final String methodUrl = "ConsultaTicketsRegistrados/findTicketsAll?x-presto-resultFormat=json&limit=1&x-p-anonymous=true";
+        
+        String result = queryRESTurl(baseUrl + methodUrl);
+        
+        try{
+        		JSONObject json = new JSONObject(result);
+                
+                return json;
+        }
+        catch (JSONException e) {
+                Log.e("JSON", "There was an error parsing the JSON", e);
+        }
+        
+		return null;
+	}
+	
+	
+	public String queryRESTurl(String url) {
+		HttpClient httpclient = new DefaultHttpClient();
+		HttpGet httpget = new HttpGet(url);
+		HttpResponse response;
+
+		try {
+			response = httpclient.execute(httpget);
+			Log.i(TAG, "Status:[" + response.getStatusLine().toString() + "]");
+			HttpEntity entity = response.getEntity();
+
+			if (entity != null) {
+
+				InputStream instream = entity.getContent();
+				String result = convertStreamToString(instream);
+				Log.i(TAG, "Result of converstion: [" + result + "]");
+
+				instream.close();
+				return result;
+			}
+		} catch (ClientProtocolException e) {
+			Log.e("REST", "There was a protocol based error", e);
+		} catch (IOException e) {
+			Log.e("REST", "There was an IO Stream related error", e);
+		}
+
+		return null;
+	}
+	
+	
+	private static String convertStreamToString(InputStream is) {
+		 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+ 
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
+
+}
