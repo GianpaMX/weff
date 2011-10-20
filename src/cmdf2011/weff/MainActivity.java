@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CiudadanoRegistroActivity.class);
-                startActivityForResult(intent, 0);
+                startActivity(intent);
             }
         });
     }

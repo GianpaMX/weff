@@ -81,10 +81,10 @@
 		</TableRow>
 		<LinearLayout android:orientation="horizontal"
 			android:layout_width="fill_parent" android:layout_height="wrap_content">
-			<Button android:text="Button" android:id="@+id/button1"
-				android:layout_width="wrap_content" android:layout_height="wrap_content"></Button>
-			<Button android:id="@+id/botonRegistro"
-				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar"></Button>
+			<Button  android:id="@+id/button1"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancelar" android:onClick="botonCancelar"></Button>
+			<Button android:id="@+id/button2"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar" android:onClick="botonRegistro"></Button>
 		</LinearLayout>
 	</TableLayout>
 </LinearLayout>

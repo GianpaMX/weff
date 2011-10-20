@@ -16,7 +16,7 @@ public class GetJson {
 	
 	protected static final String TAG = "GetJson";
 	
-	protected static final String baseUrl = "http://gdfmovil.sytes.net/presto/edge/api/rest/";
+	protected static final String baseUrl = "http://192.168.1.114/presto/edge/api/rest/";
 	
 	public String queryRESTurl(String url) {
 		HttpClient httpclient = new DefaultHttpClient();
