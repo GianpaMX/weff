@@ -6,9 +6,21 @@ public class Citizen {
 	private String nombre, apellidoP, apellidoM;
 	private String sexo;
 	private String tel, cel;
-	private String calle, numExt, numInt, colonia;
+	private String calle, numExt, numInt, colonia, cPosta, delegacion;
 	
 	
+	public String getcPosta() {
+		return cPosta;
+	}
+	public void setcPosta(String cPosta) {
+		this.cPosta = cPosta;
+	}
+	public String getDelegacion() {
+		return delegacion;
+	}
+	public void setDelegacion(String delegacion) {
+		this.delegacion = delegacion;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -68,8 +80,6 @@ public class Citizen {
 	}
 	public void setColonia(String colonia) {
 		this.colonia = colonia;
-	}
-	
-	
+	}	
 
 }
