@@ -1,12 +1,43 @@
 package cmdf2011.weff.beans;
 
-public class Citizen {
-	
+public class Ciudadano {
 
 	private String nombre, apellidoP, apellidoM;
 	private String sexo;
 	private String tel, cel;
 	private String calle, numExt, numInt, colonia, cPosta, delegacion;
+	
+	/**
+	 * @param nombre
+	 * @param apellidoP
+	 * @param apellidoM
+	 * @param sexo
+	 * @param tel
+	 * @param cel
+	 * @param calle
+	 * @param numExt
+	 * @param numInt
+	 * @param colonia
+	 * @param cPosta
+	 * @param delegacion
+	 */
+	public Ciudadano(String nombre, String apellidoP, String apellidoM,
+			String sexo, String tel, String cel, String calle, String numExt,
+			String numInt, String colonia, String cPosta, String delegacion) {
+		super();
+		this.nombre = nombre;
+		this.apellidoP = apellidoP;
+		this.apellidoM = apellidoM;
+		this.sexo = sexo;
+		this.tel = tel;
+		this.cel = cel;
+		this.calle = calle;
+		this.numExt = numExt;
+		this.numInt = numInt;
+		this.colonia = colonia;
+		this.cPosta = cPosta;
+		this.delegacion = delegacion;
+	}	
 	
 	
 	public String getcPosta() {
