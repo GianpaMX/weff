@@ -4,53 +4,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.util.Log;
 
 public class GetJson {
 	
-	private static final String TAG = "GetJson";
+	protected static final String TAG = "GetJson";
 	
-	private static final String baseUrl = "http://gdfmovil.sytes.net/presto/edge/api/rest/";
-	
-	/**
-	 * @example
-	 * 
-	 * 	JSONArray nameArray = json.names();
-     *  JSONArray valArray = json.toJSONArray(nameArray);
-     *  for (int i = 0; i < valArray.length(); i++) {
-     *  	Log.i(TAG, "<jsonname" + i + ">\\n" + nameArray.getString(i)    + "\\n</jsonname" + i + ">\\n" + "<jsonvalue" + i + ">\\n" + valArray.getString(i) + "\\n</jsonvalue"   + i + ">");
-     *  }
-	 * 
-	 * @return
-	 */
-	public JSONObject ConsultaTicketsRegistrados(){
-		
-        final String methodUrl = "ConsultaTicketsRegistrados/findTicketsAll?x-presto-resultFormat=json&limit=1&x-p-anonymous=true";
-        
-        String result = queryRESTurl(baseUrl + methodUrl);
-        
-        try{
-        		JSONObject json = new JSONObject(result);
-                
-                return json;
-        }
-        catch (JSONException e) {
-                Log.e("JSON", "There was an error parsing the JSON", e);
-        }
-        
-		return null;
-	}
-	
+	protected static final String baseUrl = "http://gdfmovil.sytes.net/presto/edge/api/rest/";
 	
 	public String queryRESTurl(String url) {
 		HttpClient httpclient = new DefaultHttpClient();
