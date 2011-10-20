@@ -1,5 +1,6 @@
 package cmdf2011.weff;
 
+import cmdf2011.weff.interfaz.activities.CiudadanoRegistroActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +17,8 @@ public class MainActivity extends Activity {
         Button b = (Button) findViewById(R.id.button1);
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), CitizenRegisterActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent = new Intent(view.getContext(), CiudadanoRegistroActivity.class);
+                startActivity(intent);
             }
         });
     }
