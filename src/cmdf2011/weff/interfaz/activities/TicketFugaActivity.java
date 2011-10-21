@@ -1,5 +1,8 @@
 package cmdf2011.weff.interfaz.activities;
 
+import java.util.List;
+
+import cmdf2011.weff.beans.Prioridad;
 import cmdf2011.weff.rest.PrioridadRest;
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,9 +23,9 @@ public class TicketFugaActivity extends Activity {
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		
-		Object[] array = prioridadRest.findPrioridadAll(10).toArray();
-		for (int i = 0; i < array.length; i++) {
-			adapter.add((CharSequence)array[i].toString());
+		List<Prioridad> l = prioridadRest.findPrioridadAll(10);
+		for (int i = 0; i < l.size(); i++) {
+			adapter.add(l.get(i).toString());
 		}
 		s.setAdapter(adapter);
 		
