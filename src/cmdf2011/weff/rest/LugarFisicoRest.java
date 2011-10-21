@@ -28,9 +28,12 @@ public class LugarFisicoRest extends GetJson {
 		List<LugarFisico> list = new ArrayList<LugarFisico>();
         final String methodUrl = "LugarFisico/findLugarFisicoAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        //TODO replace with presto
-        String result = queryRESTurl(baseUrl + methodUrl);
-//        String result = "{\"records\":{\"record\":[{\"id_lugar\":\"1\",\"lugar_fisico\":\"Arroyo Central\"},{\"id_lugar\":\"2\",\"lugar_fisico\":\"Arroyo Lateral\"},{\"id_lugar\":\"3\",\"lugar_fisico\":\"Banqueta\"},{\"id_lugar\":\"4\",\"lugar_fisico\":\"Camellon Central\"},{\"id_lugar\":\"5\",\"lugar_fisico\":\"Camellon Lateral\"},{\"id_lugar\":\"6\",\"lugar_fisico\":\"Puente Vehicular\"},{\"id_lugar\":\"7\",\"lugar_fisico\":\"Puente Peatonal\"},{\"id_lugar\":\"8\",\"lugar_fisico\":\"Bajo Puente\"}]}}";
+        String result;
+        if( Enviroment == "dev" ){
+        	result = queryRESTurl(baseUrl + methodUrl);
+        }else{
+        	result = "{\"records\":{\"record\":[{\"id_lugar\":\"1\",\"lugar_fisico\":\"Arroyo Central\"},{\"id_lugar\":\"2\",\"lugar_fisico\":\"Arroyo Lateral\"},{\"id_lugar\":\"3\",\"lugar_fisico\":\"Banqueta\"},{\"id_lugar\":\"4\",\"lugar_fisico\":\"Camellon Central\"},{\"id_lugar\":\"5\",\"lugar_fisico\":\"Camellon Lateral\"},{\"id_lugar\":\"6\",\"lugar_fisico\":\"Puente Vehicular\"},{\"id_lugar\":\"7\",\"lugar_fisico\":\"Puente Peatonal\"},{\"id_lugar\":\"8\",\"lugar_fisico\":\"Bajo Puente\"}]}}";
+        }
         
         try{
         		JSONObject json = new JSONObject(result);

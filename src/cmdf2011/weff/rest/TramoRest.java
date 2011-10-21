@@ -28,9 +28,12 @@ public class TramoRest extends GetJson {
 		List<Tramo> list = new ArrayList<Tramo>();
         final String methodUrl = "Tramos/findTramosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        //TODO replace with presto
-        String result = queryRESTurl(baseUrl + methodUrl);
-//        String result = "{\"records\":{\"record\":[{\"tramo\":\"Eje 3 Norte - Av. Cuitlahuac - Cosmopolita\",\"id_tramo\":\"1\"},{\"tramo\":\"Eje 2 Norte - Av. Canal del Norte - 20 de Noviembre\",\"id_tramo\":\"2\"}]}}";
+        String result;
+        if( Enviroment == "dev" ){
+        	result = "{\"records\":{\"record\":[{\"tramo\":\"Eje 3 Norte - Av. Cuitlahuac - Cosmopolita\",\"id_tramo\":\"1\"},{\"tramo\":\"Eje 2 Norte - Av. Canal del Norte - 20 de Noviembre\",\"id_tramo\":\"2\"}]}}";
+        }else{
+        	result = queryRESTurl(baseUrl + methodUrl);
+        }
         
         try{
         		JSONObject json = new JSONObject(result);

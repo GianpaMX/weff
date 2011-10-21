@@ -27,12 +27,13 @@ public class CiudadanoRest extends GetJson {
 	 */
 	public static List<Ciudadano> findCiudadanosAll(Integer limit){
 		List<Ciudadano> list = new ArrayList<Ciudadano>();
-        final String methodUrl = "Ciudadano/findCiudadanosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
-        
-         
-        
-        String result = queryRESTurl(baseUrl + methodUrl);
-        
+		final String methodUrl = "Ciudadano/findCiudadanosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
+		
+		String result;
+		if( Enviroment == "dev" ){
+			result = queryRESTurl(baseUrl + methodUrl);
+		}
+		
         try{
         		JSONObject json = new JSONObject(result);
         		JSONArray jsonArray = json.getJSONObject("records").getJSONArray("record");

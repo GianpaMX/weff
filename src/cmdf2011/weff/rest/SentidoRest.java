@@ -28,9 +28,12 @@ public class SentidoRest extends GetJson {
 		List<Sentido> list = new ArrayList<Sentido>();
         final String methodUrl = "Sentido/findSentidoAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        //TODO replace with presto
-        String result = queryRESTurl(baseUrl + methodUrl);
-//        String result = "{\"records\":{\"record\":[{\"id_sentido\":\"1\",\"sentido\":\"Ambos\"},{\"id_sentido\":\"2\",\"sentido\":\"Nte-Sur\"},{\"id_sentido\":\"3\",\"sentido\":\"Sur-Nte\"},{\"id_sentido\":\"4\",\"sentido\":\"Pte-Ote\"},{\"id_sentido\":\"5\",\"sentido\":\"Ote-Pte\"}]}}";
+        String result;
+	    if( Enviroment == "dev" ){
+	    	result = "{\"records\":{\"record\":[{\"id_sentido\":\"1\",\"sentido\":\"Ambos\"},{\"id_sentido\":\"2\",\"sentido\":\"Nte-Sur\"},{\"id_sentido\":\"3\",\"sentido\":\"Sur-Nte\"},{\"id_sentido\":\"4\",\"sentido\":\"Pte-Ote\"},{\"id_sentido\":\"5\",\"sentido\":\"Ote-Pte\"}]}}";
+	    }else{
+	    	result = queryRESTurl(baseUrl + methodUrl);
+	    }
         
         try{
         		JSONObject json = new JSONObject(result);
