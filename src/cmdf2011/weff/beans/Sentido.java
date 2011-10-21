@@ -24,4 +24,8 @@ public class Sentido {
 	public void setIdSentido(String id_sentido) {
 		this.id_sentido = id_sentido;
 	}
+	
+	public String toString(){
+		return getSentido();
+	}
 }
