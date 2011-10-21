@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <ImageView
+    android:id="@+id/image"
+    android:scaleType="centerInside"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+	android:layout_gravity="center"
+
+    android:layout_marginRight="6dip"
+    android:background="#0000" 
+    android:src="@drawable/app" />
+  
+  <TextView android:id="@+id/tvClave"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:textSize="20dp"
+  	android:text="Clave:"
+  />
+  
+  <EditText android:id="@+id/etClave"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:hint="Escribe tu clave"/>
+  	
+  	<TextView android:id="@+id/tvRegistrate"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:textSize="20dp"
+  	android:text="Registrate:"
+  />
+  	
+  	<Button android:id="@+id/bAcceder"
+  		android:layout_width="fill_parent"
+  		android:layout_height="wrap_content"
+  		android:text="Acceder" 
+  	/> 	
+  
+</LinearLayout>

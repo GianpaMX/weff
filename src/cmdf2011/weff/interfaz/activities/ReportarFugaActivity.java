@@ -1,7 +1,7 @@
 package cmdf2011.weff.interfaz.activities;
 
 
-import cmdf2011.weff.R;
+//import cmdf2011.weff.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
