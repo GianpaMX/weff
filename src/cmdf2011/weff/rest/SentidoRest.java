@@ -47,10 +47,10 @@ public class SentidoRest extends GetJson {
 			throw new PrestoNoSirveException("Error al obtener los sentidos. " + e.getMessage());
 		}
         
-		return list;
+		return SentidoRest.cache = list;
 	}
 
-	public static List cachedData() {
+	public static List<Sentido> cachedData() {
 		return SentidoRest.cache;
 	}
 }
