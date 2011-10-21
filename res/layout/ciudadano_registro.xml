@@ -84,13 +84,12 @@
 			<EditText android:id="@+id/delegacion" android:layout_width="match_parent"
 				android:layout_height="wrap_content" android:inputType="textPersonName"></EditText>
 		</TableRow>
-		<LinearLayout android:orientation="horizontal"
-			android:layout_width="fill_parent" android:layout_height="wrap_content">
-			<Button  android:id="@+id/button1"
-				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cancelar" android:onClick="botonCancelar"></Button>
 			<Button android:id="@+id/button2"
-				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Registrar" android:onClick="botonRegistro"></Button>
-		</LinearLayout>
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="Registrar" 
+				android:layout_gravity="center"
+				></Button>
 	</TableLayout>
 </LinearLayout>
 </ScrollView>

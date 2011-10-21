@@ -1,5 +1,6 @@
 package cmdf2011.weff.rest;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +73,34 @@ public class TicketRest extends GetJson {
 
 		return TicketRest.cache = list;
 	}
+	
+	public static Boolean insertTikets(Ticket ticket) throws PrestoNoSirveException {
+		final String methodUrl = "/presto/edge/api/rest/Tickets3/insertTikets?x-presto-resultFormat=json"
+			+ "&idTipo=" + ticket.getId_tipo()
+			+"&idVia=" + ticket.getId_via()
+			+"&idCiudadano=" + 1
+			+"&fechaIngreso=" + ticket.getFecha_ingreso()
+			+"&idPrioridad=" + ticket.getId_prioridad()
+			+"&idEtapa=" + ticket.getId_etapa()
+			+"&idMotivo=" + ticket.getId_motivo()
+			+"&asunto=" + ticket.getAsunto()
+			+"&descripcion=" + ticket.getDescripcion()
+			+"&idArea=" + ticket.getId_area()
+			+"&idTramo=" + ticket.getId_tramo()
+			+"&entreCalle=" + ticket.getEntre_calle()
+			+"&yCalle=" + ticket.getY_calle()
+			+"&idSentido=" + ticket.getId_sentido()
+			+"&idLugar=" + ticket.getId_lugar()
+			+"&puntoReferencia=" + ticket.getPunto_referencia()
+			+"&latitud="+ticket.getLatitud()
+			+"&longitud=" + ticket.getLongitud()
+			+"&fotoInicial=";
+
+		String result = queryRESTurl(baseUrl + methodUrl);
+		
+		return result == "1";
+	}
+
 
 	public static List cachedData() {
 		return TicketRest.cache;
