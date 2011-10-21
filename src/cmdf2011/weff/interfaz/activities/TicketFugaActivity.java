@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 
 public class TicketFugaActivity extends Activity {
@@ -33,10 +34,9 @@ public class TicketFugaActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		s.setAdapter(adapter);
 
-		s = (Spinner) findViewById(R.id.tramoAutoComplete);
+		AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.tramoAutoComplete);
 		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, TramoRest.findTramosAll(10).toArray());
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s.setAdapter(adapter);
+		a.setAdapter(adapter);
 		
 	}
 
