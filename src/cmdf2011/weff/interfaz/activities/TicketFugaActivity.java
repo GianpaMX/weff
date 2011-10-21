@@ -90,13 +90,18 @@ public class TicketFugaActivity extends Activity implements Runnable {
 		
         pd = ProgressDialog.show(this, "Esperando..", "Esperando datos del servidor", true, false);
         
+        
+        Thread thread = new Thread(this);
+		thread.start();
+
+        
         et = (EditText)findViewById(R.id.et_latitud);
         et.setText("0.0");
         et2 = (EditText)findViewById(R.id.et_longitud);
         et2.setText("0.0");
         
-        Intent intent = new Intent(getApplicationContext(),GpsActivity.class);
-        startActivityForResult(intent,0);
+//        Intent intent = new Intent(getApplicationContext(),GpsActivity.class);
+//        startActivityForResult(intent,0);
         
         
 	}
@@ -144,6 +149,9 @@ public class TicketFugaActivity extends Activity implements Runnable {
 	public void run() {
 		int waited = 0;
 		try {
+//	        Intent intent = new Intent(getApplicationContext(),GpsActivity.class);
+//	        startActivityForResult(intent,0);
+
 			while (waited < 500) {
 				Thread.sleep(1000);
 				waited += 100;
@@ -199,19 +207,19 @@ public class TicketFugaActivity extends Activity implements Runnable {
         public void handleMessage(Message msg) {
         	pd.dismiss();
         	
-        	if(msg.obj != null) {
-        		Exception e = (Exception) msg.obj;
-        		
-				AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
-    			alertDialog.setTitle("Error");
-    			alertDialog.setMessage(e.getMessage());
-    			alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
-    				public void onClick(DialogInterface dialog, int which) {
-    	            	 return;
-    	            }
-    	         });
-        		return;
-        	}
+//        	if(msg.obj != null) {
+//        		Exception e = (Exception) msg.obj;
+//        		
+//				AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+//    			alertDialog.setTitle("Error");
+//    			alertDialog.setMessage(e.getMessage());
+//    			alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
+//    				public void onClick(DialogInterface dialog, int which) {
+//    	            	 return;
+//    	            }
+//    	         });
+//        		return;
+//        	}
 			Intent ie = new Intent(getApplicationContext(), Formulario.class);
 			startActivity(ie);
         }
@@ -222,8 +230,5 @@ public class TicketFugaActivity extends Activity implements Runnable {
         Bundle extras = intent.getExtras();
         et.setText(extras != null ? extras.getString("latitud"):"regresado Nada");
         et2.setText(extras != null ? extras.getString("longitud"):"regresado Nada");
-        
-        Thread thread = new Thread(this);
-		thread.start();
     }
 }
