@@ -82,13 +82,11 @@
 		</TableRow>
 	</TableLayout>
 	
-	<LinearLayout android:id="@+id/linearLayout1"
-		android:layout_height="wrap_content" android:layout_width="match_parent">
-		<Button android:id="@+id/button1" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:onClick="cancelar"
-			android:text="Cancelar"></Button>
-		<Button android="@+id/button1" android:text="Enviar"
-			android:layout_height="wrap_content" android:gravity="center"
-			android:onClick="enviarTicket" android:layout_width="fill_parent" />
+	<LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="match_parent">
+		<Button android:id="@+id/button2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="cancelar" android:text="Cancelar"></Button>
+		<Button android="@+id/button1" android:text="Siguiente"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:gravity="center" android:onClick="enviarTicket"/>
 	</LinearLayout>
+	
 </LinearLayout>

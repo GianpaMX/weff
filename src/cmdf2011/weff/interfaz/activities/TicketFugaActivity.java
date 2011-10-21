@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -200,10 +201,8 @@ public class TicketFugaActivity extends Activity implements Runnable {
     	         });
         		return;
         	}
-    		Toast.makeText(getApplicationContext(), "Datos enviados correctamente", 15).show();
-        	finish();
+			Intent ie = new Intent(getApplicationContext(), Formulario.class);
+			startActivity(ie);
         }
     };
-
-	
 }
