@@ -22,7 +22,7 @@
   	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
   	android:textSize="20dp"
-  	android:text="Clave:" android:paddingTop="100px"/>
+  	android:text="Clave:" android:paddingTop="10px"/>
   
   <EditText android:id="@+id/etClave"
   	android:layout_width="fill_parent"
