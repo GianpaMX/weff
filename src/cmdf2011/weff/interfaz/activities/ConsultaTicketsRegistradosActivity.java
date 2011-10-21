@@ -41,7 +41,6 @@ public class ConsultaTicketsRegistradosActivity extends Activity implements Runn
 			tickets = TicketRest.findTiketsWhereIdCiudadanoEquals(1, 1000);
 		} catch(PrestoNoSirveException e) {
 			tickets = null;
-			Toast.makeText(this, e.getMessage(), 10).show();
 		}
 		handler.sendEmptyMessage(0);
 	}
@@ -51,9 +50,13 @@ public class ConsultaTicketsRegistradosActivity extends Activity implements Runn
         public void handleMessage(Message msg) {
         	ListView l = (ListView) findViewById(R.id.ticketsListView);
         	
-        	if(tickets == null) return;
-        	for (Object t : tickets) adapter.add(t);
-			l.setAdapter(adapter);
+        	if(tickets == null) {
+        		finish();
+        		Toast.makeText(getApplicationContext(), "Error al obtener los datos del servidor", 15).show();
+        	} else {
+	        	for (Object t : tickets) adapter.add(t);
+				l.setAdapter(adapter);
+        	}
 			
 			pd.dismiss();
         }
