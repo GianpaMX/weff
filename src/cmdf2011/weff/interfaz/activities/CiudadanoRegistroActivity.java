@@ -13,16 +13,5 @@ public class CiudadanoRegistroActivity extends Activity {
 		setContentView(R.layout.ciudadano_registro);
 	}
 	
-	public void botonCancelar(View v) {
-		finish();
-	}
-
-	public void botonRegistro(View v) {
-		showToastMessage("El registro no funciona");
-	}
-
-	private void showToastMessage(String msg) {
-		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
-		toast.show();
-	}
+	
 }

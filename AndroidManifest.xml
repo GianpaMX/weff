@@ -19,5 +19,7 @@
 		</activity>
 		<activity android:name=".MenuPrincipal"></activity>
 		<activity android:name=".TicketFugaActivity"></activity>
+		<activity android:name=".CiudadanoRegistroActivity"></activity>
+		<activity android:name=".EstadoFuga"></activity>
 	</application>
 </manifest>
