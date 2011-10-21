@@ -73,6 +73,7 @@ public class TicketFugaActivity extends Activity implements Runnable {
 				waited += 100;
 				if(FillCacheThread.hasFinished()) {
 					handler.sendEmptyMessage(0);
+					return;
 				}
 			}
 			throw new Exception("Tiempo de espera agotado");
