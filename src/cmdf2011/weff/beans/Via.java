@@ -25,5 +25,9 @@ public class Via {
 		this.id_via = id_via;
 	}
 	
+	public String toString(){
+		return getViaCaptacion();
+	}
+	
 	
 }

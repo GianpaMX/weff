@@ -113,4 +113,7 @@ public class Ciudadano {
 		this.colonia = colonia;
 	}	
 
+	public String toString(){
+		return getApellidoP() + " " + getApellidoM() + " " + getNombre();
+	}
 }

@@ -25,5 +25,8 @@ public class Tramo {
 		this.id_tramo = id_tramo;
 	}
 
+	public String toString(){
+		return getTramo();
+	}
 	
 }

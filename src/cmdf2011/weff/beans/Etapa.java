@@ -25,4 +25,7 @@ public class Etapa {
 		this.id_etapa = id_etapa;
 	}
 
+	public String toString(){
+		return getEtapa();
+	}
 }

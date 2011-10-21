@@ -25,5 +25,7 @@ public class LugarFisico {
 		this.id_lugar = id_lugar;
 	}
 	
-	
+	public String toString(){
+		return getLugarFisico();
+	}
 }
