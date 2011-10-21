@@ -47,7 +47,7 @@ public class TramoRest extends GetJson {
 			throw new PrestoNoSirveException("Error al obtener los tramos. " + e.getMessage());
 		}
         
-		return list;
+		return TramoRest.cache = list;
 	}
 	
 //	public Boolean insertTramos(String tramo, String idTramo){
@@ -61,7 +61,7 @@ public class TramoRest extends GetJson {
 //		return Boolean.TRUE;
 //	}
 
-	public static List cachedData() {
+	public static List<Tramo> cachedData() {
 		return TramoRest.cache;
 	}
 }

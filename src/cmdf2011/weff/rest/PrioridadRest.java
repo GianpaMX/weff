@@ -56,7 +56,7 @@ public class PrioridadRest extends GetJson {
 		return PrioridadRest.cache = list;
 	}
 
-	public static List cachedData() {
+	public static List<Prioridad> cachedData() {
 		return PrioridadRest.cache;
 	}
 

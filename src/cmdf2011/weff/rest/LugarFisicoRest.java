@@ -47,9 +47,9 @@ public class LugarFisicoRest extends GetJson {
 			throw new PrestoNoSirveException("Error al obtener los lugares físicos. " + e.getMessage());
 		}
         
-		return list;
+		return LugarFisicoRest.cache = list;
 	}
-	public static List cachedData() {
+	public static List<LugarFisico> cachedData() {
 		return LugarFisicoRest.cache;
 	}
 }
