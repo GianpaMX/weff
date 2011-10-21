@@ -2,7 +2,10 @@ package cmdf2011.weff.interfaz.activities;
 
 import java.util.List;
 
+import cmdf2011.weff.rest.LugarFisicoRest;
 import cmdf2011.weff.rest.PrioridadRest;
+import cmdf2011.weff.rest.SentidoRest;
+import cmdf2011.weff.rest.TramoRest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +22,21 @@ public class TicketFugaActivity extends Activity {
 		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, PrioridadRest.findPrioridadAll(10).toArray());
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		s.setAdapter(adapter);
-		
+
+		s = (Spinner) findViewById(R.id.lugarFisicoSppiner);
+		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LugarFisicoRest.findLugarFisicoAll(10).toArray());
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		s.setAdapter(adapter);
+
+		s = (Spinner) findViewById(R.id.sentidoSpinner);
+		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, SentidoRest.findSentidoAll(10).toArray());
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		s.setAdapter(adapter);
+
+		s = (Spinner) findViewById(R.id.tramoAutoComplete);
+		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, TramoRest.findTramosAll(10).toArray());
+//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		s.setAdapter(adapter);
 		
 	}
 
