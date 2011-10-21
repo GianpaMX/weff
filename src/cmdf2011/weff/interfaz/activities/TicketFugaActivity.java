@@ -1,5 +1,6 @@
 package cmdf2011.weff.interfaz.activities;
 
+import cmdf2011.weff.exceptions.PrestoNoSirveException;
 import cmdf2011.weff.rest.LugarFisicoRest;
 import cmdf2011.weff.rest.PrioridadRest;
 import cmdf2011.weff.rest.SentidoRest;
@@ -16,26 +17,34 @@ public class TicketFugaActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ticket_fuga_agua);		
+		setContentView(R.layout.ticket_fuga_agua);
 		
-		Spinner s = (Spinner) findViewById(R.id.prioridadSpinner);
-		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, PrioridadRest.findPrioridadAll(10).toArray());
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s.setAdapter(adapter);
-
-		s = (Spinner) findViewById(R.id.lugarFisicoSppiner);
-		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, LugarFisicoRest.findLugarFisicoAll(10).toArray());
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s.setAdapter(adapter);
-
-		s = (Spinner) findViewById(R.id.sentidoSpinner);
-		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, SentidoRest.findSentidoAll(10).toArray());
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		s.setAdapter(adapter);
-
-		AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.tramoAutoComplete);
-		adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, TramoRest.findTramosAll(10).toArray());
-		a.setAdapter(adapter);
+		Spinner s;
+		ArrayAdapter adapter;
+		
+		try {
+			s = (Spinner) findViewById(R.id.prioridadSpinner);
+			adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, (PrioridadRest.cachedData() == null ? PrioridadRest.findPrioridadAll(10) : PrioridadRest.cachedData()).toArray());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			s.setAdapter(adapter);
+	
+			s = (Spinner) findViewById(R.id.lugarFisicoSppiner);
+			adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, (LugarFisicoRest.cachedData() == null ? LugarFisicoRest.findLugarFisicoAll(10) : LugarFisicoRest.cachedData()).toArray());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			s.setAdapter(adapter);
+	
+			s = (Spinner) findViewById(R.id.sentidoSpinner);
+			adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, (SentidoRest.cachedData() == null ? SentidoRest.findSentidoAll(10) : SentidoRest.cachedData()).toArray());
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			s.setAdapter(adapter);
+	
+			AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.tramoAutoComplete);
+			adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, (TramoRest.cachedData() == null ? TramoRest.findTramosAll(10) : TramoRest.cachedData()).toArray());
+			a.setAdapter(adapter);
+		} catch (PrestoNoSirveException e) {
+			Toast.makeText(this, e.getMessage(), 15);
+			finish();
+		}
 		
 	}
 

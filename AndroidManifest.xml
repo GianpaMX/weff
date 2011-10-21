@@ -21,5 +21,6 @@
 		<activity android:name=".TicketFugaActivity"></activity>
 		<activity android:name=".CiudadanoRegistroActivity"></activity>
 		<activity android:name=".EstadoFuga"></activity>
+		<activity android:name=".ConsultaTicketsRegistradosActivity"></activity>
 	</application>
 </manifest>

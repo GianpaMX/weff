@@ -15,6 +15,7 @@ public class MenuPrincipal extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menuprincipal);
 
+
 		Button boton1 = (Button) findViewById(R.id.boton1);
 		Button boton2 = (Button) findViewById(R.id.boton2);
 		
@@ -36,7 +37,16 @@ public class MenuPrincipal extends Activity {
 		
 	}
 
+
+	public void reportarFuga(View v) {
+		Intent i = new Intent(v.getContext(), TicketFugaActivity.class);
+		startActivity(i);
+	}
 	
-	
+	public void consultarTicketsIngresados(View v) {
+		Intent i = new Intent(v.getContext(), ConsultaTicketsRegistradosActivity.class);
+		startActivity(i);
+	}
+
 
 }

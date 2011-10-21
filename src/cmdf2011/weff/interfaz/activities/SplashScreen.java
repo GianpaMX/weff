@@ -17,7 +17,7 @@ public class SplashScreen extends Activity {
 	             try {
 	                int waited = 0;
 	                while (waited < 500) {
-	                   sleep(100);
+	                   sleep(1000);
 	                   waited += 100;
 	                }
 	             } catch (InterruptedException e) {
