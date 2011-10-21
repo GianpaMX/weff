@@ -34,7 +34,7 @@ public class ComponentePrincipalActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(),
-						MenuPrincipal.class);
+						CiudadanoRegistroActivity.class);
 				startActivityForResult(myIntent, 0);
 			}
 		});
