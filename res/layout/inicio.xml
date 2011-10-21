@@ -16,7 +16,7 @@
 
     android:layout_marginRight="6dip"
     android:background="#0000" 
-    android:src="@drawable/app" />
+    android:src="@drawable/logo" />
   
   <TextView android:id="@+id/tvClave"
   	android:layout_width="fill_parent"
