@@ -20,9 +20,8 @@ public class TramoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List findTramosAll(Integer limit){
-		List list = new ArrayList();
+	public List<Tramo> findTramosAll(Integer limit){
+		List<Tramo> list = new ArrayList<Tramo>();
         final String methodUrl = "Tramos/findTramosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
         //TODO replace with presto

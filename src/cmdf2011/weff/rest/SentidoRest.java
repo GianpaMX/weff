@@ -20,9 +20,8 @@ public class SentidoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List findSentidoAll(Integer limit){
-		List list = new ArrayList();
+	public List<Sentido> findSentidoAll(Integer limit){
+		List<Sentido> list = new ArrayList<Sentido>();
         final String methodUrl = "Sentido/findSentidoAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
         //TODO replace with presto

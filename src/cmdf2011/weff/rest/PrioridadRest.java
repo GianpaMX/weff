@@ -24,8 +24,8 @@ public class PrioridadRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List findPrioridadAll(Integer limit){
-		List list = new ArrayList();
+	public List<Prioridad> findPrioridadAll(Integer limit){
+		List<Prioridad> list = new ArrayList<Prioridad>();
         final String methodUrl = "Prioridad/findPrioridadAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
          
         String result = "{\"records\":{\"record\":[{\"prioridad\":\"Programado\",\"id_prioridad\":\"1\"},{\"prioridad\":\"Urgente\",\"id_prioridad\":\"2\"}]}}";

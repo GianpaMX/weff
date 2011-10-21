@@ -21,8 +21,8 @@ public class ViaRest extends GetJson {
 	 * @return
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List findViaCaptacionAll(Integer limit){
-		List list = new ArrayList();
+	public List<Via> findViaCaptacionAll(Integer limit){
+		List<Via> list = new ArrayList<Via>();
         final String methodUrl = "ViaCaptacion/findViaCaptacionAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
         //TODO replace with presto

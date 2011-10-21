@@ -20,9 +20,8 @@ public class EtapaRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public List findEtapaAll(Integer limit){
-		List list = new ArrayList();
+	public List<Etapa> findEtapaAll(Integer limit){
+		List<Etapa> list = new ArrayList<Etapa>();
         final String methodUrl = "Etapa/findEtapaAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
         //TODO replace with presto
