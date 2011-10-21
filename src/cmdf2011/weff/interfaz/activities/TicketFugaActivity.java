@@ -11,6 +11,7 @@ import cmdf2011.weff.rest.SentidoRest;
 import cmdf2011.weff.rest.TramoRest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -41,7 +42,7 @@ public class TicketFugaActivity extends Activity implements Runnable {
 	}
 	
 	public void enviarTicket(View v){
-		finish();
+		//finish();
 		
 		StringBuffer text = new StringBuffer("Se ha dado de alta la fuga de agua, con los siguientes datos: ");
 		int duration = Toast.LENGTH_LONG;
@@ -60,6 +61,9 @@ public class TicketFugaActivity extends Activity implements Runnable {
 		
 		Toast toast = Toast.makeText(v.getContext(), text, duration);
 		toast.show();
+		
+		Intent i = new Intent(v.getContext(), Formulario.class);
+		startActivityForResult(i, 0);
 	}
 	
 	public void run() {
