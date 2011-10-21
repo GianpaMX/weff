@@ -1,7 +1,5 @@
 package cmdf2011.weff.interfaz.activities;
 
-import java.util.List;
-
 import cmdf2011.weff.rest.LugarFisicoRest;
 import cmdf2011.weff.rest.PrioridadRest;
 import cmdf2011.weff.rest.SentidoRest;
@@ -12,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class TicketFugaActivity extends Activity {
 	@Override
@@ -43,4 +42,27 @@ public class TicketFugaActivity extends Activity {
 	public void cancelar(View v) {
 		finish();
 	}
+	
+	public void enviarTicket(View v){
+		finish();
+		
+		StringBuffer text = new StringBuffer("Se ha dado de alta la fuga de agua, con los siguientes datos: ");
+		int duration = Toast.LENGTH_LONG;
+
+		Spinner s = (Spinner) findViewById(R.id.prioridadSpinner);
+		text.append("Prioridad: " + s.getSelectedItem().toString() + ", ");
+		
+		s = (Spinner) findViewById(R.id.lugarFisicoSppiner);
+		text.append("Lugar: " + s.getSelectedItem().toString() + ", ");
+		
+		s = (Spinner) findViewById(R.id.sentidoSpinner);
+		text.append("Sentido: " + s.getSelectedItem().toString() + ", ");
+
+		AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.tramoAutoComplete);
+		text.append("Tramo: " + a.getText().toString() + ".");
+		
+		Toast toast = Toast.makeText(v.getContext(), text, duration);
+		toast.show();
+	}
+	
 }
