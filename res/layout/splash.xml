@@ -4,7 +4,7 @@
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:background="#FFFFFF">
-      <ImageView android:src="@drawable/splash4"
+      <ImageView android:background="@drawable/splash"
          android:id="@+id/ImageView01"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
