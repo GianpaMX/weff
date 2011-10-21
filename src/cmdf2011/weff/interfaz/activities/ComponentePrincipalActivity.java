@@ -2,6 +2,8 @@ package cmdf2011.weff.interfaz.activities;
 
 import cmdf2011.weff.FillCacheThread;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -9,6 +11,7 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class ComponentePrincipalActivity extends Activity {
@@ -40,9 +43,27 @@ public class ComponentePrincipalActivity extends Activity {
 		boton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View view) {
-				Intent myIntent = new Intent(view.getContext(),
-						MenuPrincipal.class);
-				startActivityForResult(myIntent, 0);
+				
+				EditText editText = (EditText) findViewById(R.id.etClave);
+				boolean acceso = editText.getText().length()>0?true:false;
+				
+				AlertDialog alertDialog = new AlertDialog.Builder(ComponentePrincipalActivity.this).create();
+    			alertDialog.setTitle("Advertencia");
+    			alertDialog.setMessage("Usuario no válido");
+    			alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
+    	             public void onClick(DialogInterface dialog, int which) {
+    	                     return;
+    	             }
+    	         });
+    			
+    			if(acceso == true){
+    				Intent myIntent = new Intent(view.getContext(),
+    						MenuPrincipal.class);
+    				startActivityForResult(myIntent, 0);
+                }
+                else{
+                	alertDialog.show();
+                }	
 			}
 		}); // fin del setOnclickListener
 	}
