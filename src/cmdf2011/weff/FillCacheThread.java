@@ -24,6 +24,7 @@ public class FillCacheThread extends Thread {
 	
 	@Override
 	public void run() {
+		FillCacheThread.finished = false;
 		try {
 			PrioridadRest.findPrioridadAll(100);
 		} catch (PrestoNoSirveException e) {

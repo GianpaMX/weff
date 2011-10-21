@@ -75,7 +75,7 @@ public class TicketRest extends GetJson {
 	}
 	
 	public static Boolean insertTikets(Ticket ticket) throws PrestoNoSirveException {
-		final String methodUrl = "/presto/edge/api/rest/Tickets3/insertTikets?x-presto-resultFormat=json"
+		final String methodUrl = "Tickets3/insertTikets?x-presto-resultFormat=json&x-p-anonymous=true"
 			+ "&idTipo=" + ticket.getId_tipo()
 			+"&idVia=" + ticket.getId_via()
 			+"&idCiudadano=" + 1
@@ -98,7 +98,7 @@ public class TicketRest extends GetJson {
 
 		String result = queryRESTurl(baseUrl + methodUrl);
 		
-		return result == "1";
+		return result.charAt(0) == '1';
 	}
 
 

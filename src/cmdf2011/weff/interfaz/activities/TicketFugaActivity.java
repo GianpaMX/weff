@@ -9,9 +9,12 @@ import cmdf2011.weff.beans.Tramo;
 import cmdf2011.weff.rest.LugarFisicoRest;
 import cmdf2011.weff.rest.PrioridadRest;
 import cmdf2011.weff.rest.SentidoRest;
+import cmdf2011.weff.rest.TicketRest;
 import cmdf2011.weff.rest.TramoRest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -90,27 +94,39 @@ public class TicketFugaActivity extends Activity implements Runnable {
 	}
 	
 	public void enviarTicket(View v){		
-		finish();
-		Log.e("#####", ticket.toString());
+		EditText t;
+		t = (EditText) findViewById(R.id.asuntoText);
+		ticket.setAsunto(t.getText().toString());
+
+		t = (EditText) findViewById(R.id.descripcionText);
+		ticket.setDescripcion(t.getText().toString());
+
+		t = (EditText) findViewById(R.id.entreCalleText);
+		ticket.setEntre_calle(t.getText().toString());
+
+		t = (EditText) findViewById(R.id.yCalleText);
+		ticket.setY_calle(t.getText().toString());
+
+		t = (EditText) findViewById(R.id.puntoReferenciaText);
+		ticket.setPunto_referencia(t.getText().toString());
+
+        pd = ProgressDialog.show(this, "Enviando..", "Enviando datos del servidor", true, false);
+		Thread enviarTicketThread = new Thread() {
+			@Override
+			public void run() {
+				try {
+					if(TicketRest.insertTikets(ticket))
+						handler2.sendEmptyMessage(0);
+					else
+						throw new Exception("Error al enviar los datos al servidor");
+				} catch (Exception e) {
+					handler2.sendMessage(handler2.obtainMessage(0, e));
+				}
+			}
+		};
+		enviarTicketThread.start();
+		
 		return;
-//		
-//		StringBuffer text = new StringBuffer("Se ha dado de alta la fuga de agua, con los siguientes datos: ");
-//		int duration = Toast.LENGTH_LONG;
-//
-//		Spinner s = (Spinner) findViewById(R.id.prioridadSpinner);
-//		text.append("Prioridad: " + s.getSelectedItem().toString() + ", ");
-//		
-//		s = (Spinner) findViewById(R.id.lugarFisicoSppiner);
-//		text.append("Lugar: " + s.getSelectedItem().toString() + ", ");
-//		
-//		s = (Spinner) findViewById(R.id.sentidoSpinner);
-//		text.append("Sentido: " + s.getSelectedItem().toString() + ", ");
-//
-//		AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.tramoAutoComplete);
-//		text.append("Tramo: " + a.getText().toString() + ".");
-//		
-//		Toast toast = Toast.makeText(v.getContext(), text, duration);
-//		toast.show();
 	}
 	
 	public void run() {
@@ -136,7 +152,7 @@ public class TicketFugaActivity extends Activity implements Runnable {
         public void handleMessage(Message msg) {
         	if(msg.obj != null) {
         		Exception e = (Exception) msg.obj;
-        		Toast.makeText(getApplicationContext(), e.getMessage(), 15);
+        		Toast.makeText(getApplicationContext(), e.getMessage(), 15).show();
         		finish();
         		return;
         	}
@@ -165,5 +181,29 @@ public class TicketFugaActivity extends Activity implements Runnable {
 			pd.dismiss();
         }
     };
+    
+    private Handler handler2 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+        	pd.dismiss();
+        	
+        	if(msg.obj != null) {
+        		Exception e = (Exception) msg.obj;
+        		
+				AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+    			alertDialog.setTitle("Error");
+    			alertDialog.setMessage(e.getMessage());
+    			alertDialog.setButton("Aceptar", new DialogInterface.OnClickListener() {
+    				public void onClick(DialogInterface dialog, int which) {
+    	            	 return;
+    	            }
+    	         });
+        		return;
+        	}
+    		Toast.makeText(getApplicationContext(), "Datos enviados correctamente", 15).show();
+        	finish();
+        }
+    };
+
 	
 }
