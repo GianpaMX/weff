@@ -25,7 +25,7 @@ public class CiudadanoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<Ciudadano> findCiudadanosAll(Integer limit){
+	public static List<Ciudadano> findCiudadanosAll(Integer limit){
 		List<Ciudadano> list = new ArrayList<Ciudadano>();
         final String methodUrl = "Ciudadano/findCiudadanosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         

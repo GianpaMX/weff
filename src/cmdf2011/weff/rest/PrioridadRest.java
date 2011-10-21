@@ -24,7 +24,7 @@ public class PrioridadRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<Prioridad> findPrioridadAll(Integer limit){
+	public static List<Prioridad> findPrioridadAll(Integer limit){
 		List<Prioridad> list = new ArrayList<Prioridad>();
         final String methodUrl = "Prioridad/findPrioridadAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
          

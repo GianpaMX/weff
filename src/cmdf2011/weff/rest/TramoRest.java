@@ -20,7 +20,7 @@ public class TramoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<Tramo> findTramosAll(Integer limit){
+	public static List<Tramo> findTramosAll(Integer limit){
 		List<Tramo> list = new ArrayList<Tramo>();
         final String methodUrl = "Tramos/findTramosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         

@@ -20,7 +20,7 @@ public class LugarFisicoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<LugarFisico> findLugarFisicoAll(Integer limit){
+	public static List<LugarFisico> findLugarFisicoAll(Integer limit){
 		List<LugarFisico> list = new ArrayList<LugarFisico>();
         final String methodUrl = "LugarFisico/findLugarFisicoAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         

@@ -20,7 +20,7 @@ public class EtapaRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<Etapa> findEtapaAll(Integer limit){
+	public static List<Etapa> findEtapaAll(Integer limit){
 		List<Etapa> list = new ArrayList<Etapa>();
         final String methodUrl = "Etapa/findEtapaAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         

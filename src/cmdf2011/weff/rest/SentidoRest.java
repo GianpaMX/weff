@@ -20,7 +20,7 @@ public class SentidoRest extends GetJson {
 	 * 
 	 * @return
 	 */
-	public List<Sentido> findSentidoAll(Integer limit){
+	public static List<Sentido> findSentidoAll(Integer limit){
 		List<Sentido> list = new ArrayList<Sentido>();
         final String methodUrl = "Sentido/findSentidoAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
