@@ -18,5 +18,6 @@
 
 		</activity>
 		<activity android:name=".MenuPrincipal"></activity>
+		<activity android:name=".TicketFugaActivity"></activity>
 	</application>
 </manifest>
