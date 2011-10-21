@@ -27,10 +27,10 @@ public class PrioridadRest extends GetJson {
 	public List findPrioridadAll(Integer limit){
 		List list = new ArrayList();
         final String methodUrl = "Prioridad/findPrioridadAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
-        
          
-        
-        String result = queryRESTurl(baseUrl + methodUrl);
+        String result = "{\"records\":{\"record\":[{\"prioridad\":\"Programado\",\"id_prioridad\":\"1\"},{\"prioridad\":\"Urgente\",\"id_prioridad\":\"2\"}]}}";
+        //TODO cambia por presto
+        //String result = queryRESTurl(baseUrl + methodUrl);
         
         try{
         		JSONObject json = new JSONObject(result);
