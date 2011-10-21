@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<TextView android:id="@+id/id_tusuario" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Nombre usuario"
+		android:textSize="20dp" android:gravity="center" />
+
+	<TextView android:id="@+id/tprioridad" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="prioridad"
+		android:textSize="20dp" android:gravity="left" />
+
+
+	<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/text1" android:layout_width="fill_parent"
+		android:layout_height="?android:attr/listPreferredItemHeight"
+		android:gravity="center_vertical" android:tag="text1" android:text="La prioridad"
+		android:focusable="false" />
+
+	<TextView android:id="@+id/tlugarfisico" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Lugar fisico"
+		android:textSize="20dp" android:gravity="left" />
+
+	
+	<TextView android:id="@+id/tsentido" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Sentido"
+		android:textSize="20dp" android:gravity="left" />
+
+	<TextView android:id="@+id/ttramos" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="Tramos"
+		android:textSize="20dp" android:gravity="left" />
+
+ <Button android="@+id/botonenvia" 
+         android:text="Enviar" 
+         android:layout_width="162dp" 
+         android:layout_height="wrap_content"
+         android:gravity="center"/>
+
+</LinearLayout>

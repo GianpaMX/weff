@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <TableLayout android:id="@+id/tableLayout1" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+<TableRow >
+<TextView android:id="@+id/tv_nombre" android:text="Nombre:" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<EditView android:id="@+id/ev_nombre" android:text="" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></EditView>
+</TableRow>    
+
+<TableRow >
+<TextView android:id="@+id/tv_apaterno" android:text="A. Paterno:" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<EditView android:id="@+id/ev_apaterno" android:text="" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></EditView>
+</TableRow> 
+
+<TableRow >
+<TextView android:id="@+id/tv_amaterno" android:text="A. Materno:" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<EditView android:id="@+id/ev_amaterno" android:text="" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></EditView>
+</TableRow>       
+
+<TableRow >
+<TextView android:id="@+id/tv_sexo" android:text="Sexo:" 
+android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+</TableRow>
+</TableLayout>
