@@ -32,11 +32,9 @@ public class PrioridadRest extends GetJson {
 		final String methodUrl = "Prioridad/findPrioridadAll?x-presto-resultFormat=json&limit="
 				+ limit + "&x-p-anonymous=true";
 
-		String result;
-	    if( Enviroment == "dev" ){
+		String result = queryRESTurl(baseUrl + methodUrl);
+	    if( null == result ){
 	    	result = "{\"records\":{\"record\":[{\"prioridad\":\"Programado\",\"id_prioridad\":\"1\"},{\"prioridad\":\"Urgente\",\"id_prioridad\":\"2\"}]}}";
-	    }else{
-			result = queryRESTurl(baseUrl + methodUrl);
 	    }
 
 		try {

@@ -18,9 +18,7 @@ public abstract class GetJson {
 	protected static final String TAG = "GetJson";
 	
 	protected static final String baseUrl = "http://192.168.1.114/presto/edge/api/rest/";
-	
-	protected static final String Enviroment = "dev"; 
-	
+		
 	public static String queryRESTurl(String url) {
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(url);

@@ -29,10 +29,10 @@ public class CiudadanoRest extends GetJson {
 		List<Ciudadano> list = new ArrayList<Ciudadano>();
 		final String methodUrl = "Ciudadano/findCiudadanosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
 		
-		String result;
-		if( Enviroment == "dev" ){
-			result = queryRESTurl(baseUrl + methodUrl);
-		}
+		String result = queryRESTurl(baseUrl + methodUrl);
+	    if( null == result ){
+	    	result = "{\"records\":{\"record\":[]}}";
+	    }
 		
         try{
         		JSONObject json = new JSONObject(result);

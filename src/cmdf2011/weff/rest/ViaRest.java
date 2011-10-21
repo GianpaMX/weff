@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import cmdf2011.weff.beans.Via;
 
+import android.database.CursorJoiner.Result;
 import android.util.Log;
 
 public class ViaRest extends GetJson {
@@ -24,11 +25,9 @@ public class ViaRest extends GetJson {
 		List<Via> list = new ArrayList<Via>();
         final String methodUrl = "ViaCaptacion/findViaCaptacionAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        String result;
-        if( Enviroment == "dev" ){
+        String result = queryRESTurl(baseUrl + methodUrl);
+        if( null == result ){
         	result = "{\"records\":{\"record\":[{\"id_via\":\"1\",\"via_captacion\":\"Call center\"},{\"id_via\":\"2\",\"via_captacion\":\"Correo electronico\"},{\"id_via\":\"3\",\"via_captacion\":\"En persona\"},{\"id_via\":\"4\",\"via_captacion\":\"Escrito\"},{\"id_via\":\"5\",\"via_captacion\":\"Prensa\"},{\"id_via\":\"6\",\"via_captacion\":\"Pagina Web\"},{\"id_via\":\"7\",\"via_captacion\":\"Radio\"},{\"id_via\":\"8\",\"via_captacion\":\"Redes Sociales\"},{\"id_via\":\"9\",\"via_captacion\":\"TV\"}]}}";
-        }else{
-        	result = queryRESTurl(baseUrl + methodUrl);
         }
         
         try{

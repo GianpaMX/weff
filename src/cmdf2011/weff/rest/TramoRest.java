@@ -28,11 +28,9 @@ public class TramoRest extends GetJson {
 		List<Tramo> list = new ArrayList<Tramo>();
         final String methodUrl = "Tramos/findTramosAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        String result;
-        if( Enviroment == "dev" ){
+        String result = queryRESTurl(baseUrl + methodUrl);
+        if( null == result ){
         	result = "{\"records\":{\"record\":[{\"tramo\":\"Eje 3 Norte - Av. Cuitlahuac - Cosmopolita\",\"id_tramo\":\"1\"},{\"tramo\":\"Eje 2 Norte - Av. Canal del Norte - 20 de Noviembre\",\"id_tramo\":\"2\"}]}}";
-        }else{
-        	result = queryRESTurl(baseUrl + methodUrl);
         }
         
         try{
@@ -52,16 +50,16 @@ public class TramoRest extends GetJson {
 		return list;
 	}
 	
-	public Boolean insertTramos(String tramo, String idTramo){
-		try{
-			final String methodUrl = "Tramos/insertTramos?x-presto-resultFormat=json&idTramo="+idTramo+"&tramo="+tramo;
-			queryRESTurl(methodUrl);
-		}catch (Exception e) {
-			return Boolean.FALSE;
-		}
-		
-		return Boolean.TRUE;
-	}
+//	public Boolean insertTramos(String tramo, String idTramo){
+//		try{
+//			final String methodUrl = "Tramos/insertTramos?x-presto-resultFormat=json&idTramo="+idTramo+"&tramo="+tramo;
+//			queryRESTurl(methodUrl);
+//		}catch (Exception e) {
+//			return Boolean.FALSE;
+//		}
+//		
+//		return Boolean.TRUE;
+//	}
 
 	public static List cachedData() {
 		return TramoRest.cache;

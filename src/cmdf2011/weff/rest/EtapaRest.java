@@ -24,11 +24,9 @@ public class EtapaRest extends GetJson {
 		List<Etapa> list = new ArrayList<Etapa>();
         final String methodUrl = "Etapa/findEtapaAll?x-presto-resultFormat=json&limit="+limit+"&x-p-anonymous=true";
         
-        String result;
-        if( Enviroment == "dev" ){
+        String result = queryRESTurl(baseUrl + methodUrl);
+        if( null == result ){
         	result = "{\"records\":{\"record\":[{\"etapa\":\"Ingreso\",\"id_etapa\":\"1\"},{\"etapa\":\"Supervision\",\"id_etapa\":\"2\"},{\"etapa\":\"Operación\",\"id_etapa\":\"3\"},{\"etapa\":\"Finalizado\",\"id_etapa\":\"4\"}]}}";
-        }else{
-        	result = queryRESTurl(baseUrl + methodUrl);
         }
         
         try{
