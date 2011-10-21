@@ -11,19 +11,25 @@ import cmdf2011.weff.rest.SentidoRest;
 import cmdf2011.weff.rest.TramoRest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TicketFugaActivity extends Activity implements Runnable {
 	private ProgressDialog pd;
 	protected Spinner s;
 	protected ArrayAdapter adapter;
+	
+	private EditText et;
+	private EditText et2;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +38,15 @@ public class TicketFugaActivity extends Activity implements Runnable {
 		
         pd = ProgressDialog.show(this, "Esperando..", "Esperando datos del servidor", true, false);
         
-		Thread thread = new Thread(this);
-		thread.start();
+        et = (EditText)findViewById(R.id.et_latitud);
+        et.setText("0.0");
+        et2 = (EditText)findViewById(R.id.et_longitud);
+        et2.setText("0.0");
+        
+        Intent intent = new Intent(getApplicationContext(),GpsActivity.class);
+        startActivityForResult(intent,0);
+        
+        
 	}
 
 	public void cancelar(View v) {
@@ -112,4 +125,13 @@ public class TicketFugaActivity extends Activity implements Runnable {
         }
     };
 	
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+        Bundle extras = intent.getExtras();
+        et.setText(extras != null ? extras.getString("latitud"):"regresado Nada");
+        et2.setText(extras != null ? extras.getString("longitud"):"regresado Nada");
+        
+        Thread thread = new Thread(this);
+		thread.start();
+    }
 }
