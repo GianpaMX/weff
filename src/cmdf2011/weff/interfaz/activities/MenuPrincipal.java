@@ -16,17 +16,8 @@ public class MenuPrincipal extends Activity {
 		setContentView(R.layout.menuprincipal);
 
 
-		Button boton1 = (Button) findViewById(R.id.boton1);
 		Button boton2 = (Button) findViewById(R.id.boton2);
-		
-		boton1.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(v.getContext(),CiudadanoRegistroActivity.class);
-				startActivityForResult(i, 0);
-			}
-		});
-		
+				
 		boton2.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
