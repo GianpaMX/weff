@@ -25,4 +25,7 @@ public class Prioridad {
 		this.id_prioridad = id_prioridad;
 	}
 	
+	public String toString(){
+		return getPrioridad();
+	}
 }
