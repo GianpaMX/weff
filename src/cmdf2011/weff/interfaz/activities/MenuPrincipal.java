@@ -12,11 +12,15 @@ public class MenuPrincipal extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menuprincipal);
-
 	}
 
 	public void reportarFuga(View v) {
 		Intent i = new Intent(v.getContext(), TicketFugaActivity.class);
+		startActivity(i);
+	}
+	
+	public void consultarTicketsIngresados(View v) {
+		Intent i = new Intent(v.getContext(), ConsultaTicketsRegistradosActivity.class);
 		startActivity(i);
 	}
 

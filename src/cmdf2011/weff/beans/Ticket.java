@@ -122,4 +122,7 @@ public class Ticket {
 		this.id_ticket = id_ticket;
 	}
 	
+	public String toString() {
+		return "Ticket #" + getId_ticket() + ". " + getDescripcion() + " (" + getFecha_ingreso() + ")";
+	}
 }
