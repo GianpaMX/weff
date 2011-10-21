@@ -17,8 +17,13 @@ public class TicketFugaActivity extends Activity {
 		
 		
 		Spinner s = (Spinner) findViewById(R.id.prioridadSpinner);
-		ArrayAdapter adapter = new ArrayAdapter(this,
-				android.R.layout.simple_spinner_item, prioridadRest.findPrioridadAll(10).toArray());
+		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+		Object[] array = prioridadRest.findPrioridadAll(10).toArray();
+		for (int i = 0; i < array.length; i++) {
+			adapter.add((CharSequence)array[i].toString());
+		}
 		s.setAdapter(adapter);
 		
 	}
